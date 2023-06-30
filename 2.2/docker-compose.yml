@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  db:
+    image: postgres:latest
+    ports:
+      - 5432:5432
+    environment:
+      POSTGRES_USER: Anna
+      POSTGRES_PASSWORD: qwerty
+      POSTGRES_DB: library
+    volumes:
+      - ./DDL/creating_schema.sql:/docker-entrypoint-initdb.d/creating_schema.sql
+      - ./DML/init.sql:/docker-entrypoint-initdb.d/init.sql
