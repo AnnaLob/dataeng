@@ -1,9 +1,5 @@
 
 
-select max(count) from( select reader_id, count(*) as count from library.book_extradition group by reader_id) as max; 
-
-select * from library.book_extradition;
-
 --1 задание
 select reader_id, count(*) as count from library.book_extradition where date_of_refund is not null
 group by reader_id 
