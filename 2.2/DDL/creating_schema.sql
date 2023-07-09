@@ -24,7 +24,8 @@ CREATE TABLE IF NOT EXISTS library.book (
   year_of_publication SMALLINT,
   amount SMALLINT NOT NULL,
   id_pub_company BIGINT,
-  FOREIGN KEY (id_pub_company) REFERENCES library.pub_company (id_pub_company) ON DELETE SET NULL
+  FOREIGN KEY (id_pub_company) REFERENCES library.pub_company (id_pub_company) ON DELETE SET NULL,
+  name_of_book VARCHAR(50) NOT NULL DEFAULT ('Неизвестно')
 );
 
 
@@ -32,7 +33,9 @@ CREATE TABLE IF NOT EXISTS library.book_extradition (
   reader_id BIGINT,
   code BIGINT,
   FOREIGN KEY (reader_id) REFERENCES library.readers (reader_id) ON DELETE SET NULL, 
-  FOREIGN KEY (code) REFERENCES library.book (code) ON DELETE SET NULL
+  FOREIGN KEY (code) REFERENCES library.book (code) ON DELETE SET NULL,
+  date_of_ex DATE NOT NULL,
+  date_of_refund DATE
 );
 
 
